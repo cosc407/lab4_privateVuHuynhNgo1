@@ -1,0 +1,11 @@
+# build output
+bin/
+*.exe
+*.o
+
+# editors
+.vscode/
+.idea/
+*.swp
+
+# results/ and plots/ are NOT ignored: commit them

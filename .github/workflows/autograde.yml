@@ -1,0 +1,39 @@
+name: Lab 4 core checks
+
+# The same checks as `make test`, on every push. Green here is 25 of the 100
+# marks: the rest is the reasoning in RESULTS.md and the oral test. Nothing
+# here measures a speedup -- this machine is not yours.
+
+on:
+  push:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: gcc --version && nproc
+
+      - name: Build
+        run: make
+
+      - name: The given files
+        run: bash tests/run_tests.sh given
+
+      - name: Your k1
+        run: bash tests/run_tests.sh k1
+
+      - name: Your k2
+        run: bash tests/run_tests.sh k2
+
+      - name: Your measurements
+        run: bash tests/run_tests.sh results
+
+      - name: PREDICTION.md and RESULTS.md
+        run: bash tests/run_tests.sh report
