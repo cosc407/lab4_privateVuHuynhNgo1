@@ -35,10 +35,7 @@
 #endif
 
 typedef struct {
-    int band[4];            /* counts for bands 0..3 */
-#if PAD > 0
-    char pad[PAD];          /* only in the sweep: makes each slot PAD bytes bigger */
-#endif
+    _Alignas(64) int band[4];
 } slot_t;
 
 static slot_t slot[LAB4_MAX_THREADS];    /* slot[t] belongs to thread t */

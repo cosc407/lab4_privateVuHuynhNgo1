@@ -23,10 +23,10 @@ f = setup / time = 0.0770 / 0.3497 ≈ 0.22019, or 22.02%.
 
 | threads | Amdahl's speedup | what you expect to measure |
 |---|---|---|
-| 2 | 1.64× | Slightly less than Amdahl because thread coordination and reduction add overhead. |
-| 4 | 2.41× | Slightly less than Amdahl because overhead and competition for shared resources reduce ideal gains. |
-| 8 | 3.15× | Less than Amdahl because additional threads share hardware resources and do not provide ideal scaling. |
-| 16 | 3.72× | Less than Amdahl; 16 software threads exceed the 12 visible logical CPUs, so extra threads may provide little benefit. |
+| 2 | 1.64 | Slightly less than Amdahl because thread coordination and reduction add overhead. |
+| 4 | 2.41 | Slightly less than Amdahl because overhead and competition for shared resources reduce ideal gains. |
+| 8 | 3.15 | Less than Amdahl because additional threads share hardware resources and do not provide ideal scaling. |
+| 16 | 3.72 | Less than Amdahl; 16 software threads exceed the 12 visible logical CPUs, so extra threads may provide little benefit. |
 
 ## P2 — k2
 

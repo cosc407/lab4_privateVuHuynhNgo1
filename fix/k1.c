@@ -23,6 +23,7 @@ double ref_k1(const double *x, long n);   /* src/ref.c: the same sum, serial */
 static double kernel(const double *x, long n)
 {
     double sum = 0.0;
+    #pragma omp parallel for reduction(+:sum)
     for (long i = 0; i < n; i++) {
         sum += sqrt(x[i]) * sin(10.0 * x[i]);
     }
